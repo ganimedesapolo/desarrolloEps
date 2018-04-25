@@ -37,3 +37,9 @@ var spanishDatatable = {
       'autoWidth'   : true,
       "language": spanishDatatable,
     })
+
+
+  
+ 
+  
+   

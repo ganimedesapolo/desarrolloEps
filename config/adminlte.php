@@ -111,13 +111,13 @@ return [
         'MAIN NAVIGATION',
        [
             'text'        => 'Home',
-            'url'         => 'admin/pages',
+            'url'         => 'home',
             'icon'        => 'home',
         ],
         'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text' => 'Registrar Usuario',
+            'url'  => 'registrarUsuario',
             'icon' => 'user',
         ],
         [

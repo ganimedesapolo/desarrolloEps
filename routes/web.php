@@ -22,3 +22,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+///registrar usuario
+
+Route::get('crearUsuario', ['as' => 'usuario.crear', function () {
+    return view('registrarUsuario');
+}]);
+
+
+Route::Post('/guardarUsuario', 'HomeController@guardarUsuario')->name('guardarUsuario');
+

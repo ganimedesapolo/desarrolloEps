@@ -8,8 +8,7 @@
 
 @section('content')
   <div class="col-sm-12">
-   	<a  style="margin:10px;"  href="{{route('register')}}" class="btn btn-primary pull-left">Nuevo</a>
-
+   	<a  style="margin:10px;"  href="{{ route('usuario.crear') }}" class="btn btn-primary pull-left">Nuevo</a>
      <table id="tblusuarios" class="table table-hover table-striped">
 				<thead>
 				<tr>
@@ -47,11 +46,9 @@
 		     @endforeach
 			</tbody>	
 		</table>
-		
-
-  </div> 
+	</div> 
 @stop
 
 @section('js')
-    <script src="{{ asset('js/general.js') }}"> console.log('Hi!'); </script>
+    <script src="{{ asset('js/general.js') }}"> </script>
 @stop

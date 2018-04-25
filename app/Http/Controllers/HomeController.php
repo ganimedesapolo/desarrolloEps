@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\UserRequest;
 
 class HomeController extends Controller
 {
@@ -27,4 +28,15 @@ class HomeController extends Controller
         $users = User::orderBy('id','DESC')->get();
         return view('home',compact('users'));
     }
+
+
+  public function guardarUsuario(UserRequest $request)
+    {   
+       $user = User::create($request->all());
+       $users = User::orderBy('id','DESC')->get();
+       return view('home',compact('users'));
+    }
+
+
+
 }
