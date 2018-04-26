@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Usuarios Registrados')
 
 @section('content_header')
     <h1>Usuarios Registrados</h1>
@@ -8,7 +8,7 @@
 
 @section('content')
   <div class="col-sm-12">
-   	<a  style="margin:10px;"  href="{{ route('usuario.crear') }}" class="btn btn-primary pull-left">Nuevo</a>
+   	<a  style="margin:10px;"  href="{{ route('users.create') }}" class="btn btn-primary pull-left">Nuevo</a>
      <table id="tblusuarios" class="table table-hover table-striped">
 				<thead>
 				<tr>

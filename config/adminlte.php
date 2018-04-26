@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'title' => 'Epson',
+    'title' => 'EpsonApp',
 
     'title_prefix' => 'Administracion - ',
 
-    'title_postfix' => ' - Espon',
+    'title_postfix' => ' - EsponApp',
 
     /*
     |--------------------------------------------------------------------------

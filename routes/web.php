@@ -18,17 +18,13 @@ Route::get('/', function () {
 });
 
 
-
-Auth::routes();
-
+//icono home pagina principal
 Route::get('/home', 'HomeController@index')->name('home');
 
-///registrar usuario
 
-Route::get('crearUsuario', ['as' => 'usuario.crear', function () {
-    return view('registrarUsuario');
-}]);
+///ruta defecto laravel logueo
+Auth::routes();
 
-
-Route::Post('/guardarUsuario', 'HomeController@guardarUsuario')->name('guardarUsuario');
+///recurso api controlador User
+Route::resource('users', 'UserController');
 
