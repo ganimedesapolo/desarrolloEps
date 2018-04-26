@@ -7,13 +7,16 @@
 @stop
 
 @section('content')
-  <div class="col-sm-12">
-   	<a  style="margin:10px;"  href="{{ route('users.create') }}" class="btn btn-primary pull-left">Nuevo</a>
-     <table id="tblusuarios" class="table table-hover table-striped">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-11 ">
+   	     <a  style="margin-bottom:20px;"  href="{{ route('users.create') }}" class="btn  btn-primary pull-left">Nuevo</a>
+          <table id="tblusuarios" class="table table-hover table-striped">
 				<thead>
 				<tr>
 					<th width="20px">Consecutivo</th>
 					<th>Nombre </th>
+					<th>Correo </th>
 					<th >&nbsp;</th>
 					<th >&nbsp;</th>
 					<th >&nbsp;</th>
@@ -24,9 +27,8 @@
 				  @foreach($users as $user)	
 				<tr>
 					<td>{{ $user->id }}</td>
-					<td>
-						{{ $user->name }}
-					</td>
+					<td>{{ $user->name }}</td>
+					<td>{{ $user->email }}</td>
 					<td width="20px">
 						<a href="" class="btn btn-link">
 							Ver
@@ -46,9 +48,13 @@
 		     @endforeach
 			</tbody>	
 		</table>
-	</div> 
+    </div> 
+  </div>
+</div>
 @stop
 
 @section('js')
     <script src="{{ asset('js/general.js') }}"> </script>
 @stop
+
+

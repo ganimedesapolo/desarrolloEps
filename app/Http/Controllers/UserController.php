@@ -36,8 +36,19 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-   
-       $user = User::create($request->all());
+     // dd($request->all());
+     // $rol =(int)($request['rol']);
+      
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'rol' =>(int)$request['rol'],
+            'password' => bcrypt($request['password']),
+        ]);
+
+
+
+      /// $user = User::create($request->all());
        $users = User::orderBy('id','DESC')->get();
        return view('home',compact('users'));
   

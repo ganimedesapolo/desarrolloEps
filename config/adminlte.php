@@ -117,7 +117,7 @@ return [
         'ACCOUNT SETTINGS',
         [
             'text' => 'Registrar Usuario',
-            'url'  => 'registrarUsuario',
+            'url'  => 'users/create',
             'icon' => 'user',
         ],
         [

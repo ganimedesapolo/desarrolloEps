@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 
+
 //icono home pagina principal
 Route::get('/home', 'HomeController@index')->name('home');
 

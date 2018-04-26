@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('rol')->default(0);  ///1 administrador , 0 normal
             $table->rememberToken();
             $table->timestamps();
         });
@@ -33,3 +34,4 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+
