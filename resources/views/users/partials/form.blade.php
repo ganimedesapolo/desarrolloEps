@@ -9,7 +9,7 @@
 	</div>
 	<div class="form-group">
 	  {{ Form::label('rol', 'Administrador') }}
-	  {{ Form::select('rol', array(1 => 'Si', 0 => 'No',''=>'Seleccione' ), '', ['class' => 'form-control'] )}}
+	  {{ Form::select('rol', array(1 => 'Si', 0 => 'No',''=>'Seleccione' ), null, ['class' => 'form-control'] )}}
 	</div>
 	<div class="form-group">
 	  {{ Form::label('password', 'Clave') }}
@@ -22,3 +22,4 @@
 	<div class="form-group">
 	      {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
 	 </div>
+
