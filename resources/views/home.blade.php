@@ -9,14 +9,10 @@
 @section('content')
   <div class="container">
       <div class="row">
-		      	@if(session('info'))
-		          <div class="col-md-3">
-		                <div class="alert alert-success">
-		                     {{ session('info') }}
-		                </div>
-		            </div>
-			 @endif 
-        <div class="col-md-11 ">
+	    <div class="col-md-10 table-responsive">
+           
+           @include('layouts.msginfo')
+
    	     <a  style="margin-bottom:20px;"  href="{{ route('users.create') }}" class="btn  btn-primary pull-left">Nuevo Usuario</a>
    	      <table id="tblusuarios" class="table table-hover table-striped">
 				<thead>
@@ -25,7 +21,6 @@
 					<th>Nombre </th>
 					<th>Correo </th>
 					<th>Administrador </th>
-					<th >&nbsp;</th>
 					<th >&nbsp;</th>
 					<th >&nbsp;</th>
 				</tr>
@@ -42,17 +37,14 @@
                         @endif
 					</td>
 					<td width="20px">
-						<a href="" class="btn btn-link">
-							Ver
-						</a>
-					</td>
-					<td width="20px">
 					   <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-default">Editar</a>
 					</td>
 					<td width="20px">
-						<a href="" class="btn btn-link">
-							Borrar
-						</a>
+						 {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'DELETE']) !!}
+                                        <button class="btn btn-sm btn-danger">
+                                            Eliminar
+                                        </button>                           
+                         {!! Form::close() !!}
 					</td>
 				</tr>
 		     @endforeach

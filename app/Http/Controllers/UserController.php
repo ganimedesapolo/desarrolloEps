@@ -52,7 +52,8 @@ class UserController extends Controller
 
       /// $user = User::create($request->all());
        $users = User::orderBy('id','DESC')->get();
-       return view('home',compact('users'));
+      //return view('home')->with('users',$users)->with('info', 'Usuario creado con exito');
+      return redirect()->route('home',compact('users'))->with('info', 'Usuario creado con exito');
   
     }
 
@@ -101,6 +102,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return back()->with('info', 'Eliminado correctamente');
     }
 }
