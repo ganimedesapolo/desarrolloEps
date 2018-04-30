@@ -28,4 +28,5 @@ Auth::routes();
 
 ///recurso api controlador User
 Route::resource('users', 'UserController');
+Route::resource('ofertas', 'OfertaController');
 

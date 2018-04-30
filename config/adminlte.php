@@ -127,7 +127,7 @@ return [
         ],
         [
             'text' => 'Gestionar Ofertas',
-            'url'  => '',
+            'url'  => 'ofertas',
             'icon' => 'sticky-note',
         ],
      ],
