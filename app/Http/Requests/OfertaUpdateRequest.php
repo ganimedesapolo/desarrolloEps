@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OfertaRequest extends FormRequest
+class OfertaUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,23 +21,22 @@ class OfertaRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+      public function rules()
     {
-        return [
+         $rules = [
             'titulo' => 'required|string|max:191',
             'descripcion' => 'required|string|max:255',
-            'file' => 'required|mimes:jpg,jpeg,png,gif',
             'idPais'=>'required',
+            'file'         => 'nullable|mimes:jpg,jpeg,png'
+            
         ];
+ 
+        return $rules;
+        
+
     }
 
 
-   public function messages(){
-       return [
-         'file.required' => "El campo imagen es necesario",
-         'idPais.required' => "El campo pais es requerido",
-         'file.mimes'=> "La extension de la imagen debe ser jpg,jpeg,png,gif"
-             ];
-     }
-
 }
+
+

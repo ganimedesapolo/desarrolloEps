@@ -7,6 +7,7 @@ use App\Pais;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\OfertaRequest;
+use App\Http\Requests\OfertaUpdateRequest;
 
 class OfertaController extends Controller
 {
@@ -30,6 +31,7 @@ class OfertaController extends Controller
     public function create()
     {
         $paises = Pais::orderBy('id','ASC')->pluck('nombre','id');
+
         return view('ofertas.create',compact('paises'));
 
     }
@@ -49,9 +51,7 @@ class OfertaController extends Controller
         }
 
        $ofertas = Oferta::orderBy('id','DESC')->get();
-       return view('ofertas.index')->with('ofertas',$ofertas)->with('info', 'Oferta creada con exito');
-     /// return redirect()->route('ofertas.index',compact('ofertas'))->with('info', 'Oferta creado con exito');
-
+       return redirect()->route('ofertas.index',compact('ofertas'))->with('info', 'Oferta creada con exito');
 
     }
 
@@ -72,9 +72,11 @@ class OfertaController extends Controller
      * @param  \App\Oferta  $oferta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Oferta $oferta)
+    public function edit($id)
     {
-        //
+         $oferta = Oferta::find($id);
+         $paises = Pais::orderBy('id','ASC')->pluck('nombre','id');
+         return view('ofertas.edit', compact('oferta','paises'));
     }
 
     /**
@@ -84,9 +86,22 @@ class OfertaController extends Controller
      * @param  \App\Oferta  $oferta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Oferta $oferta)
+    public function update(OfertaUpdateRequest $request, $id)
     {
-        //
+        
+       $oferta = Oferta::find($id);
+       $oferta->fill($request->all())->save();
+
+        if($request->file('file')){
+            $path = Storage::disk('public')->put('image',$request->file('file'));
+            $oferta->fill(['file'=>asset($path)])->save();
+
+        }
+
+        $ofertas = Oferta::orderBy('id','DESC')->get();
+        return redirect()->route('ofertas.index',compact('ofertas'))->with('info', 'Oferta actualizada con exito');
+
+
     }
 
     /**
@@ -95,8 +110,10 @@ class OfertaController extends Controller
      * @param  \App\Oferta  $oferta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Oferta $oferta)
+    public function destroy($id)
     {
-        //
+        $oferta = Oferta::find($id);
+        $oferta->delete();
+        return back()->with('info', 'Oferta Eliminada correctamente');
     }
 }

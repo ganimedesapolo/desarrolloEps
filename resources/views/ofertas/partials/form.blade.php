@@ -13,9 +13,8 @@
 	</div>
 	<div class="form-group">
 	  {{ Form::label('idPais', 'Pais') }}
-	  {{ Form::select('idPais', $paises, null, ['class' => 'form-control'] )}}
+	  {{ Form::select('idPais', $paises, null, ['class' => 'form-control','placeholder' => 'Por favor seleccione'] )}}
 	</div>
 	<div class="form-group">
 	      {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
 	 </div>
-

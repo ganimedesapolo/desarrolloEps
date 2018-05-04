@@ -22,6 +22,8 @@
 					<th>Descripcion </th>
 					<th >Imagen</th>
 					<th >Pais</th>
+				    <th >&nbsp;</th>
+                    <th >&nbsp;</th>
 				</tr>
 		    	</thead>
 				
@@ -33,7 +35,16 @@
 					<td>{{ $oferta->descripcion }}</td>
 					<td><img style="width: 50px; height: 50px;" src="{{$oferta->file}}" class="" alt="alt text"></td>
 					<td>{{  $oferta->pais->nombre }}</td>
-					
+					<td width="20px">
+					   <a href="{{ route('ofertas.edit', $oferta->id) }}" class="btn btn-sm btn-default">Editar</a>
+					</td>
+					<td width="20px">
+						 {!! Form::open(['route' => ['ofertas.destroy', $oferta->id], 'method' => 'DELETE']) !!}
+                                        <button class="btn btn-sm btn-danger">
+                                            Eliminar
+                                        </button>                           
+                         {!! Form::close() !!}
+					</td>
 				</tr>
 		     @endforeach
 			</tbody>	
