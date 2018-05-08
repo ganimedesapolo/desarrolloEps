@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OfertaUpdateRequest extends FormRequest
+class TasaCambioUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,22 +21,10 @@ class OfertaUpdateRequest extends FormRequest
      *
      * @return array
      */
-      public function rules()
+    public function rules()
     {
-         $rules = [
-            'titulo' => 'required|string|max:191',
-            'descripcion' => 'required|string|max:255',
-            'idPais'=>'required',
-            'file'         => 'nullable|mimes:jpg,jpeg,png,zip'
-            
+        return [
+             'valor' => 'required|max:12',
         ];
- 
-        return $rules;
-        
-
     }
-
-
 }
-
-

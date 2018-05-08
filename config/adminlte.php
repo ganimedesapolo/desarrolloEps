@@ -116,19 +116,29 @@ return [
         ],
         'ACCOUNT SETTINGS',
         [
-            'text' => 'Registrar Usuario',
-            'url'  => 'users/create',
-            'icon' => 'user',
-        ],
-        [
             'text' => 'Listar Usuarios',
             'url'  => 'home',
             'icon' => 'list',
         ],
         [
-            'text' => 'Gestionar Ofertas',
+            'text' => 'Registrar Usuario',
+            'url'  => 'users/create',
+            'icon' => 'user',
+        ],
+        [
+            'text' => 'Listar  Ofertas',
             'url'  => 'ofertas',
+            'icon' => 'list',
+        ],
+         [
+            'text' => 'Registrar  Oferta',
+            'url'  => 'ofertas/create',
             'icon' => 'sticky-note',
+        ],
+        [
+            'text' => 'Tasa Cambio',
+            'url'  => 'tasaCambios',
+            'icon' => 'usd',
         ],
      ],
 

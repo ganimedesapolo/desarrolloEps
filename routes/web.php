@@ -30,3 +30,8 @@ Auth::routes();
 Route::resource('users', 'UserController');
 Route::resource('ofertas', 'OfertaController');
 
+//tasa de cambio
+Route::get('/tasaCambios', 'TasaCambioController@index')->name('tasaCambios');
+Route::get('/tasaCambios/{tasaCambio}/edit', 'TasaCambioController@edit')->name('tasaCambios.edit');
+Route::put('/tasaCambios/{tasaCambio}', 'TasaCambioController@update')->name('tasaCambios.update');
+
