@@ -20,7 +20,7 @@
 					<th width="20px">Consecutivo</th>
 					<th>Titulo </th>
 					<th>Descripcion </th>
-					<th >Imagen</th>
+					<th >Multimedia</th>
 					<th >Pais</th>
 				    <th >&nbsp;</th>
                     <th >&nbsp;</th>
@@ -33,10 +33,10 @@
 					<td>{{ $oferta->id }}</td>
 					<td>{{ $oferta->titulo }}</td>
 					<td>{{ $oferta->descripcion }}</td>
-					<td><img style="width: 50px; height: 50px;" src="{{$oferta->file}}" class="" alt="alt text"></td>
+					<td align="center"><a target="_blank" href="{{ $oferta->file }}"><i class="fa fa-image"></i></a></td>
 					<td>{{  $oferta->pais->nombre }}</td>
 					<td width="20px">
-					   <a href="{{ route('ofertas.edit', $oferta->id) }}" class="btn btn-sm btn-default">Editar</a>
+					   <a  href="{{ route('ofertas.edit', $oferta->id) }}" class="btn btn-sm btn-default">Editar</a>
 					</td>
 					<td width="20px">
 						 {!! Form::open(['route' => ['ofertas.destroy', $oferta->id], 'method' => 'DELETE']) !!}
