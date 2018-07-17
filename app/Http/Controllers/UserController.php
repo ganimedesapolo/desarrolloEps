@@ -69,7 +69,8 @@ class UserController extends Controller
 
 
     public function storeApi(Request $request){
-         $user = $request->isMethod('put') ? User::findOrFail($request->user_id) :
+          //actualizar nombre y usuario en put
+         $user = $request->isMethod('put') ? User::findOrFail($request->id) :
          new User;
 
          $user->name = $request->input('name');
@@ -120,6 +121,7 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, $id)
     {
+
         $user = User::find($id);
         $request['password'] = bcrypt($request['password']);
         $user->fill($request->all())->save();
@@ -137,5 +139,16 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return back()->with('info', 'Eliminado correctamente');
+    }
+
+
+     public function destroyApi($id)
+    {
+         $user = User::findOrFail($id);
+        ///retornar como recurso
+        if($user->delete()){
+             return new UserResource($user);
+       } 
+       
     }
 }

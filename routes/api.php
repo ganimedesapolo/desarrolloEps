@@ -20,7 +20,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //list
 Route::get('users','UserController@indexApi');
+
 //show
-Route::get('user/{id}','UserController@ShowApi');
+Route::get('user/{id}','UserController@showApi');
+
 //create 
-Route::post('user','UserController@StoreApi');
+Route::post('user','UserController@storeApi');
+
+//update
+Route::put('user','UserController@storeApi');
+
+//delete
+Route::delete('user/{id}','UserController@destroyApi');
