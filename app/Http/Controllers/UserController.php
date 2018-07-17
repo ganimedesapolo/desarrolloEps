@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use App\Http\Requests;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Http\Resources\User as UserResource;
+
 
 class UserController extends Controller
 {
@@ -17,7 +19,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+       
+    }
+
+
+       public function indexApi()
+    {
+        $users = User::paginate(15);
+        //retornar coleccion de usuarios como recurso
+        return UserResource::collection($users);
     }
 
     /**
@@ -57,6 +67,21 @@ class UserController extends Controller
   
     }
 
+
+    public function storeApi(Request $request){
+         $user = $request->isMethod('put') ? User::findOrFail($request->user_id) :
+         new User;
+
+         $user->name = $request->input('name');
+         $user->email = $request->input('email');
+         $user->password = bcrypt($request->input('password'));
+
+           
+         if($user->save()){
+             return new UserResource($user);
+       }
+  }
+
     /**
      * Display the specified resource.
      *
@@ -66,6 +91,13 @@ class UserController extends Controller
     public function show($id)
     {
         //
+    }
+
+     public function showApi($id)
+    {
+        $user = User::findOrFail($id);
+        ///retornar como recurso
+        return new UserResource($user);
     }
 
     /**
