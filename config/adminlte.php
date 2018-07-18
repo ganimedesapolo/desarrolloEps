@@ -1,5 +1,8 @@
 <?php
 
+$rutaImagen = $_SERVER['PHP_SELF'];
+
+
 return [
 
     /*
@@ -30,10 +33,10 @@ return [
     | variant, used for the mini side bar. Make it 3 letters or so
     |
     */
-
+  
      
 
-    'logo' => '<img  class="img-responsive" style="display:inline"  src="'.getcwd().'" >',
+    'logo' => '<img  class="img-responsive" style="display:inline"  src="'.$rutaImagen.'/../image/epson_logo.jpg" >',
 
     'logo_mini' => '<b>Ep</b>',
 
