@@ -13,6 +13,7 @@ return [
     |
     */
 
+  
     'title' => 'EpsonApp',
 
     'title_prefix' => 'Administracion - ',
@@ -30,7 +31,9 @@ return [
     |
     */
 
-    'logo' => '<img  class="img-responsive" style="display:inline"  src="../public/image/epson_logo.jpg" >',
+     
+
+    'logo' => '<img  class="img-responsive" style="display:inline"  src="'.asset('image/epson_logo.jpg').'" >',
 
     'logo_mini' => '<b>Ep</b>',
 
