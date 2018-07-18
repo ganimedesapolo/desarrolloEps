@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Epson</b>',
+    'logo' => '<img  class="img-responsive" style="display:inline"  src="../public/image/epson_logo.jpg" >',
 
     'logo_mini' => '<b>Ep</b>',
 
