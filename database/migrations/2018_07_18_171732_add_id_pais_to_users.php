@@ -14,7 +14,7 @@ class AddIdPaisToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-               // $table->integer('idPais')->unsigned();
+                 $table->integer('idPais')->unsigned();
                 $table->foreign('idPais')->references('id')->on('pais')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
