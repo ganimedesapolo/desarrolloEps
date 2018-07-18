@@ -114,7 +114,8 @@ class UserController extends Controller
      public function edit($id)
     {
          $user = User::find($id);
-         return view('users.edit', compact('user'));
+         $paises = Pais::orderBy('id','ASC')->pluck('nombre','id');
+         return view('users.edit', compact('user','paises'));
     }
     /**
      * Update the specified resource in storage.

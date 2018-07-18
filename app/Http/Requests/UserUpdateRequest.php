@@ -32,11 +32,26 @@ class UserUpdateRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,'.$this->user,
             'password' => 'required|string|min:6|confirmed',
-            'rol'=>'required'
+            'rol'=>'required',
+            'idPais'=>'required'
         ];
     }
+
+
+        public function messages(){
+         return [
+                     'name.required' => "El campo Nombre es necesario",
+                     'rol.required' => "El campo Administrador es necesario",
+                     'idPais.required' => "El campo pais es requerido",
+                ];
+     }
+
 }
 
 
 
   /// 'slug'          => 'required|unique:posts,slug,' . $this->post,
+ 
+
+
+ 
