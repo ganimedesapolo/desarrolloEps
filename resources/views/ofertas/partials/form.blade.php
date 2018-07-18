@@ -8,7 +8,7 @@
 			    {{ Form::textarea('descripcion', null, ['class' => 'form-control','rows'=>3]) }}
 	</div>
     <div class="form-group">
-				{{ Form::label('file','Archivo') }}
+				{{ Form::label('file','Archivo PDF') }}
 				{{ Form::file('file') }}
 	</div>
 	<div class="form-group">

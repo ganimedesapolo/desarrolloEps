@@ -18,7 +18,7 @@ class CreateOfertasTable extends Migration
             $table->string('titulo');
             $table->mediumText('descripcion');;
             $table->string('file',128)->nullable();
-            $table->integer('idPais')->unsigned();;
+            $table->integer('idPais')->unsigned();
             $table->timestamps();
    
            $table->foreign('idPais')->references('id')->on('pais')

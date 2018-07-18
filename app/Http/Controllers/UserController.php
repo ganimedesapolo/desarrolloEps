@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Pais;
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
@@ -37,7 +38,9 @@ class UserController extends Controller
      */
     public function create()
     {
-         return view('users.create');
+
+       $paises = Pais::orderBy('id','ASC')->pluck('nombre','id');
+        return view('users.create',compact('paises'));
     }
 
     /**
@@ -48,14 +51,15 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
+     
      // dd($request->all());
-     // $rol =(int)($request['rol']);
       
         User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'rol' =>(int)$request['rol'],
             'password' => bcrypt($request['password']),
+            'idPais' => $request['idPais'],
         ]);
 
 

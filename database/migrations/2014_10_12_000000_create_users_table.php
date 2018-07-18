@@ -21,7 +21,10 @@ class CreateUsersTable extends Migration
             $table->integer('rol')->default(0);  ///1 administrador , 0 normal
             $table->rememberToken();
             $table->timestamps();
+
+           
         });
+
     }
 
     /**

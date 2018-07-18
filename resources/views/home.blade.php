@@ -20,6 +20,7 @@
 					<th width="20px">Consecutivo</th>
 					<th>Nombre </th>
 					<th>Correo </th>
+					<th>Pais</th>
 					<th>Administrador </th>
 					<th >&nbsp;</th>
 					<th >&nbsp;</th>
@@ -32,6 +33,7 @@
 					<td>{{ $user->id }}</td>
 					<td>{{ $user->name }}</td>
 					<td>{{ $user->email }}</td>
+					<td>{{  $user->pais->nombre }}</td>
 					<td>@if ( $user->rol== 1) Si
 						@elseif( $user->rol== 0) No
                         @endif

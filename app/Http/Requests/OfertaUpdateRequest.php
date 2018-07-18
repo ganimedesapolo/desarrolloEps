@@ -27,7 +27,7 @@ class OfertaUpdateRequest extends FormRequest
             'titulo' => 'required|string|max:191',
             'descripcion' => 'required|string|max:255',
             'idPais'=>'required',
-            'file'   => 'nullable|mimes:jpg,jpeg,png,gif,mp4|max:20000'
+            'file'   => 'nullable|mimes:pdf|max:20000'
             
         ];
  
@@ -40,7 +40,7 @@ class OfertaUpdateRequest extends FormRequest
      public function messages(){
        return [
          'idPais.required' => "El campo pais es requerido",
-         'file.mimes'=> "La extension del archivo debe ser jpg,jpeg,png,gif,mp4",
+         'file.mimes'=> "La extension del archivo debe ser SOLO pdf",
          'file.max' => "El archivo debe pesar menos de 20 MB",
              ];
      }

@@ -9,7 +9,11 @@
 	</div>
 	<div class="form-group">
 	  {{ Form::label('rol', 'Administrador') }}
-	  {{ Form::select('rol', array(1 => 'Si', 0 => 'No',''=>'Seleccione' ), null, ['class' => 'form-control'] )}}
+	  {{ Form::select('rol', array(1 => 'Si', 0 => 'No'), null, ['class' => 'form-control','placeholder' => 'Por favor seleccione'] )}}
+	</div>
+	<div class="form-group">
+	  {{ Form::label('idPais', 'Pais') }}
+	  {{ Form::select('idPais', $paises, null, ['class' => 'form-control','placeholder' => 'Por favor seleccione'] )}}
 	</div>
 	<div class="form-group">
 	  {{ Form::label('password', 'Clave') }}

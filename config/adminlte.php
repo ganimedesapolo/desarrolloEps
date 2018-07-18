@@ -33,7 +33,7 @@ return [
 
      
 
-    'logo' => '<img  class="img-responsive" style="display:inline"  src="'.asset('image/epson_logo.jpg').'" >',
+    'logo' => '<img  class="img-responsive" style="display:inline"  src="'.getcwd().'" >',
 
     'logo_mini' => '<b>Ep</b>',
 

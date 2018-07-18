@@ -20,7 +20,7 @@
 					<th width="20px">Consecutivo</th>
 					<th>Titulo </th>
 					<th>Descripcion </th>
-					<th >Multimedia</th>
+					<th >PDF</th>
 					<th >Pais</th>
 				    <th >&nbsp;</th>
                     <th >&nbsp;</th>
