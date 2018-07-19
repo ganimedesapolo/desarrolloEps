@@ -10,14 +10,10 @@
 <div class="container">
     <div class="row">
           <div class="col-md-8 ">
-          
           @include('layouts.errors')
-
-        {!! Form::model($oferta, ['route'=> ['ofertas.update', $oferta->id], 'method'=>'PUT','files'=>true]) !!}
+          {!! Form::model($oferta, ['route'=> ['ofertas.update', $oferta->id], 'method'=>'PUT','files'=>true]) !!}
                 @include('ofertas.partials.form')
-      {!! Form::close() !!}
-
-           
+           {!! Form::close() !!}
            </div>
         </div>
     </div>

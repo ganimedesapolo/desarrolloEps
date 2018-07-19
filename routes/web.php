@@ -35,3 +35,5 @@ Route::get('/tasaCambios', 'TasaCambioController@index')->name('tasaCambios');
 Route::get('/tasaCambios/{tasaCambio}/edit', 'TasaCambioController@edit')->name('tasaCambios.edit');
 Route::put('/tasaCambios/{tasaCambio}', 'TasaCambioController@update')->name('tasaCambios.update');
 
+//tipo de vendedores
+Route::resource('tipovendedores', 'TipovendedoresController');
