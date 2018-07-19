@@ -146,6 +146,18 @@ return [
             'url'  => 'tasaCambios',
             'icon' => 'usd',
         ],
+        [
+            'text' => 'Configuracion',
+            'url'  => '',
+            'icon' => 'cog',
+            'submenu' => [
+                           [
+                            'text' => 'Tipo Vendedores',
+                            'url'  => 'tipovendedores',
+                            'icon' => 'briefcase',
+                           ]
+                         ]
+        ],
      ],
 
     /*
