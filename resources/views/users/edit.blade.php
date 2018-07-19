@@ -10,14 +10,10 @@
 <div class="container">
     <div class="row">
           <div class="col-md-8 ">
-          
           @include('layouts.errors')
-
-	      {!! Form::model($user, ['route'=> ['users.update', $user->id], 'method'=>'PUT']) !!}
+          {!! Form::model($user, ['route'=> ['users.update', $user->id], 'method'=>'PUT']) !!}
 		            @include('users.partials.form')
-		  {!! Form::close() !!}
-
-           
+	   	    {!! Form::close() !!}
            </div>
         </div>
     </div>

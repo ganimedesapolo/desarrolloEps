@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'rol','idPais',
+        'name', 'email', 'password', 'rol','idPais','idTipovendedor',
     ];
 
     /**
@@ -31,6 +31,11 @@ class User extends Authenticatable
    ///relaciones foraneas
    public function pais(){
      return $this->belongsTo(Pais::class,'idPais');
+
+   }
+
+    public function tipovendedor(){
+     return $this->belongsTo(Tipovendedores::class,'idTipovendedor');
 
    }
 

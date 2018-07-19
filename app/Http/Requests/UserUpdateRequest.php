@@ -33,7 +33,8 @@ class UserUpdateRequest extends FormRequest
             'email' => 'required|string|email|max:255|unique:users,email,'.$this->user,
             'password' => 'required|string|min:6|confirmed',
             'rol'=>'required',
-            'idPais'=>'required'
+            'idPais'=>'required',
+            'idTipovendedor'=>'required'
         ];
     }
 
@@ -43,6 +44,7 @@ class UserUpdateRequest extends FormRequest
                      'name.required' => "El campo Nombre es necesario",
                      'rol.required' => "El campo Administrador es necesario",
                      'idPais.required' => "El campo pais es requerido",
+                     'idTipovendedor.required' => "El campo Vendedor es requerido",
                 ];
      }
 

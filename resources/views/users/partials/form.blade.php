@@ -16,6 +16,10 @@
 	  {{ Form::select('idPais', $paises, null, ['class' => 'form-control','placeholder' => 'Por favor seleccione'] )}}
 	</div>
 	<div class="form-group">
+	  {{ Form::label('idTipovendedor', 'Tipo Vendedor') }}
+	  {{ Form::select('idTipovendedor', $tipovendedores, null, ['class' => 'form-control','placeholder' => 'Por favor seleccione'] )}}
+	</div>
+	<div class="form-group">
 	  {{ Form::label('password', 'Clave') }}
 	  {{ Form::password('password', ['class' => 'form-control']) }}
 	</div>

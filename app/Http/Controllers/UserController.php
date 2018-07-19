@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Pais;
+use App\Tipovendedores;
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
@@ -40,7 +41,8 @@ class UserController extends Controller
     {
 
        $paises = Pais::orderBy('id','ASC')->pluck('nombre','id');
-        return view('users.create',compact('paises'));
+       $tipovendedores = Tipovendedores::orderBy('id','ASC')->pluck('nombre_tipo','id');
+        return view('users.create',compact('paises','tipovendedores'));
     }
 
     /**
@@ -60,6 +62,7 @@ class UserController extends Controller
             'rol' =>(int)$request['rol'],
             'password' => bcrypt($request['password']),
             'idPais' => $request['idPais'],
+            'idTipovendedor' => $request['idTipovendedor']
         ]);
 
 
@@ -115,7 +118,8 @@ class UserController extends Controller
     {
          $user = User::find($id);
          $paises = Pais::orderBy('id','ASC')->pluck('nombre','id');
-         return view('users.edit', compact('user','paises'));
+         $tipovendedores = Tipovendedores::orderBy('id','ASC')->pluck('nombre_tipo','id');
+         return view('users.edit', compact('user','paises','tipovendedores'));
     }
     /**
      * Update the specified resource in storage.

@@ -22,6 +22,7 @@
 					<th>Correo </th>
 					<th>Pais</th>
 					<th>Administrador </th>
+					<th>Tipo Vendedor </th>
 					<th >&nbsp;</th>
 					<th >&nbsp;</th>
 				</tr>
@@ -38,6 +39,7 @@
 						@elseif( $user->rol== 0) No
                         @endif
 					</td>
+					<td>{{  $user->tipovendedor->nombre_tipo }}</td>
 					<td width="20px">
 					   <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-default">Editar</a>
 					</td>
