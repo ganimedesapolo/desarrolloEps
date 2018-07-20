@@ -141,6 +141,11 @@ return [
             'url'  => 'ofertas/create',
             'icon' => 'sticky-note',
         ],
+         [
+            'text' => 'Productos',
+            'url'  => 'productos',
+            'icon' => 'print',
+        ],
         [
             'text' => 'Tasa Cambio',
             'url'  => 'tasaCambios',

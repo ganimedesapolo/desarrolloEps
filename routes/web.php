@@ -37,3 +37,6 @@ Route::put('/tasaCambios/{tasaCambio}', 'TasaCambioController@update')->name('ta
 
 //tipo de vendedores
 Route::resource('tipovendedores', 'TipovendedoresController');
+
+//tipo de vendedores
+Route::resource('productos', 'ProductoController');

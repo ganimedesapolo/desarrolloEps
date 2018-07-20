@@ -26,7 +26,7 @@ class OfertaRequest extends FormRequest
         return [
             'titulo' => 'required|string|max:191',
             'descripcion' => 'required|string|max:255',
-            'file' => 'required|mimes:pdf|max:20000',
+            'file' => 'required|mimes:pdf|max:10000',
             'idPais'=>'required',
         ];
     }
@@ -35,7 +35,7 @@ class OfertaRequest extends FormRequest
    public function messages(){
        return [
          'file.required' => "El campo archivo es necesario",
-         'file.max' => "El archivo debe pesar menos de 20 MB",
+         'file.max' => "El archivo debe pesar menos de 10 MB",
          'idPais.required' => "El campo pais es requerido",
          'file.mimes'=> "La extension del archivo debe ser SOLO pdf",
              ];
