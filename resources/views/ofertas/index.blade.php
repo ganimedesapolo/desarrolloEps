@@ -22,6 +22,7 @@
 					<th>Descripcion </th>
 					<th >PDF</th>
 					<th >Pais</th>
+					<th >Linea Negocio</th>
 				    <th >&nbsp;</th>
                     <th >&nbsp;</th>
 				</tr>
@@ -35,6 +36,7 @@
 					<td>{{ $oferta->descripcion }}</td>
 					<td align="center"><a target="_blank" href="{{ $oferta->file }}"><i class="fa fa-image"></i></a></td>
 					<td>{{  $oferta->pais->nombre }}</td>
+					<td>{{  $oferta->lineaNegocio->nombre }}</td>
 					<td width="20px">
 					   <a  href="{{ route('ofertas.edit', $oferta->id) }}" class="btn btn-sm btn-default">Editar</a>
 					</td>

@@ -28,16 +28,18 @@ class OfertaRequest extends FormRequest
             'descripcion' => 'required|string|max:255',
             'file' => 'required|mimes:pdf|max:10000',
             'idPais'=>'required',
+            'idLineaNegocio'=>'required',
         ];
     }
 
 
    public function messages(){
        return [
-         'file.required' => "El campo archivo es necesario",
-         'file.max' => "El archivo debe pesar menos de 10 MB",
-         'idPais.required' => "El campo pais es requerido",
-         'file.mimes'=> "La extension del archivo debe ser SOLO pdf",
+         'file.required' => "El campo archivo es necesario.",
+         'file.max' => "El archivo debe pesar menos de 10 MB.",
+         'idPais.required' => "El campo pais es requerido.",
+         'file.mimes'=> "La extension del archivo debe ser SOLO pdf.",
+         'idLineaNegocio.required'=>'La linea de negocios es requerida.',
              ];
      }
 

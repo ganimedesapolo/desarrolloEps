@@ -27,7 +27,8 @@ class OfertaUpdateRequest extends FormRequest
             'titulo' => 'required|string|max:191',
             'descripcion' => 'required|string|max:255',
             'idPais'=>'required',
-            'file'   => 'nullable|mimes:pdf|max:10000'
+            'file'   => 'nullable|mimes:pdf|max:10000',
+            'idLineaNegocio'=>'required',
             
         ];
  
@@ -42,7 +43,8 @@ class OfertaUpdateRequest extends FormRequest
          'idPais.required' => "El campo pais es requerido",
          'file.mimes'=> "La extension del archivo debe ser SOLO pdf",
          'file.max' => "El archivo debe pesar menos de 10 MB",
-             ];
+         'idLineaNegocio.required'=>'La linea de negocios es requerida.',
+        ];
      }
 
 

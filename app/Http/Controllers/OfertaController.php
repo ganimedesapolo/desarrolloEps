@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Oferta;
 use App\Pais;
+use App\LineaNegocio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\OfertaRequest;
@@ -31,8 +32,8 @@ class OfertaController extends Controller
     public function create()
     {
         $paises = Pais::orderBy('id','ASC')->pluck('nombre','id');
-
-        return view('ofertas.create',compact('paises'));
+        $lineaNegocios = LineaNegocio::orderBy('id','ASC')->pluck('nombre','id');
+        return view('ofertas.create',compact('paises','lineaNegocios'));
 
     }
 
@@ -76,7 +77,8 @@ class OfertaController extends Controller
     {
          $oferta = Oferta::find($id);
          $paises = Pais::orderBy('id','ASC')->pluck('nombre','id');
-         return view('ofertas.edit', compact('oferta','paises'));
+         $lineaNegocios = LineaNegocio::orderBy('id','ASC')->pluck('nombre','id');
+         return view('ofertas.edit', compact('oferta','paises','lineaNegocios'));
     }
 
     /**

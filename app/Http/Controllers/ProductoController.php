@@ -6,6 +6,7 @@ use App\Producto;
 use App\LineaNegocio;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductoRequest;
+use App\Http\Requests\ProductoUpdateRequest;
 use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
@@ -78,7 +79,9 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+         $producto = Producto::find($producto->id);
+         $lineaNegocios = LineaNegocio::orderBy('id','ASC')->pluck('nombre','id');
+         return view('productos.edit', compact('producto','lineaNegocios'));
     }
 
     /**
@@ -88,9 +91,27 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(ProductoUpdateRequest $request, Producto $producto)
     {
-        //
+        
+       $producto = Producto::find($producto->id);
+       $producto->fill($request->all())->save();
+
+          if($request->file('descripcion_pdf')){
+            $path = Storage::disk('public')->put('uploads',$request->file('descripcion_pdf'));
+            $producto->fill(['descripcion_pdf'=>asset($path)])->save();
+        }
+
+        if($request->file('foto')){
+            $path = Storage::disk('public')->put('uploads',$request->file('foto'));
+            $producto->fill(['foto'=>asset($path)])->save();
+        } 
+    
+
+        $productos = Producto::orderBy('id','DESC')->get();
+        return redirect()->route('productos.index',compact('productos'))->with('info', 'Producto actualizado con exito');
+
+
     }
 
     /**

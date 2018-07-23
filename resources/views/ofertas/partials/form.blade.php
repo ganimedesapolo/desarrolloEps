@@ -16,5 +16,9 @@
 	  {{ Form::select('idPais', $paises, null, ['class' => 'form-control','placeholder' => 'Por favor seleccione'] )}}
 	</div>
 	<div class="form-group">
+	  {{ Form::label('idLineaNegocio', 'Linea Negocios') }}
+	  {{ Form::select('idLineaNegocio', $lineaNegocios, null, ['class' => 'form-control','placeholder' => 'Por favor seleccione'] )}}
+	</div>
+	<div class="form-group">
 	      {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
 	 </div>
