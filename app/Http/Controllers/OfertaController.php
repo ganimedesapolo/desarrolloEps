@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\OfertaRequest;
 use App\Http\Requests\OfertaUpdateRequest;
+use App\Http\Resources\Oferta as OfertaResource;
 
 class OfertaController extends Controller
 {
@@ -22,6 +23,13 @@ class OfertaController extends Controller
         $ofertas = Oferta::orderBy('id','DESC')->get();
         return view('ofertas.index',compact('ofertas'));   
         
+    }
+
+        public function indexApi()
+    {
+        $ofertas = Oferta::orderBy('id','DESC')->get();
+        //retornar coleccion de ofertas como recurso
+        return OfertaResource::collection($ofertas);
     }
 
     /**

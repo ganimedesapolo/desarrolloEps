@@ -32,3 +32,7 @@ Route::put('user','UserController@storeApi');
 
 //delete
 Route::delete('user/{id}','UserController@destroyApi');
+
+
+////ofertas 
+Route::get('ofertas','OfertaController@indexApi');
