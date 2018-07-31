@@ -25,12 +25,7 @@ class OfertaController extends Controller
         
     }
 
-        public function indexApi()
-    {
-        $ofertas = Oferta::orderBy('id','DESC')->get();
-        //retornar coleccion de ofertas como recurso
-        return OfertaResource::collection($ofertas);
-    }
+      
 
     /**
      * Show the form for creating a new resource.
@@ -126,4 +121,16 @@ class OfertaController extends Controller
         $oferta->delete();
         return back()->with('info', 'Oferta Eliminada correctamente');
     }
+
+
+    //obtener las ofertas por linea de negocio
+      public function ofertaLineaApi($id)
+    {
+       
+       $ofertas = oferta::where('idLineaNegocio', $id)
+               ->orderBy('id', 'desc')
+               ->get();
+        return OfertaResource::collection($ofertas);
+
+   }
 }

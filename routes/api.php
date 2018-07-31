@@ -35,4 +35,4 @@ Route::delete('user/{id}','UserController@destroyApi');
 
 
 ////ofertas 
-Route::get('ofertas','OfertaController@indexApi');
+Route::get('ofertaLinea/{id}','OfertaController@ofertaLineaApi');
