@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductoRequest;
 use App\Http\Requests\ProductoUpdateRequest;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Resources\ProductoResource;
 
 class ProductoController extends Controller
 {
@@ -126,4 +127,16 @@ class ProductoController extends Controller
         $producto->delete();
         return back()->with('info', 'Producto Eliminado correctamente');
     }
+
+
+      //obtener los productos por linea de negocio
+      public function productoLineaApi($id)
+    {
+       
+       $productos = Producto::where('idLineaNegocio', $id)
+               ->orderBy('id', 'desc')
+               ->get();
+        return ProductoResource::collection($productos);
+
+   }
 }

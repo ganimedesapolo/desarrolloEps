@@ -36,3 +36,6 @@ Route::delete('user/{id}','UserController@destroyApi');
 
 ////ofertas 
 Route::get('ofertaLinea/{id}','OfertaController@ofertaLineaApi');
+
+//productos
+Route::get('productoLinea/{id}','ProductoController@ProductoLineaApi');
