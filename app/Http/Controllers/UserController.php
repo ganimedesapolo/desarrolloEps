@@ -160,4 +160,23 @@ class UserController extends Controller
        } 
        
     }
+
+
+     public function loginViaApi(Request $request)
+    {
+       
+         $email = $request->input('email');
+         $password = bcrypt($request->input('password'));
+     
+         $user = User::where('email', '=' ,$email)->firstOrFail();
+        ///retornar como recurso
+        if($user){
+             return new UserResource($user);
+        }else{
+           return false;
+
+        } 
+       
+    }
+
 }
