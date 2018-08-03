@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Resources\User as UserResource;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -168,9 +169,12 @@ class UserController extends Controller
          $email = $request->input('email');
          $password = bcrypt($request->input('password'));
      
-         $user = User::where('email', '=' ,$email)->firstOrFail();
-        ///retornar como recurso
-        if($user){
+       
+         $credentials = $request->only('email', 'password');
+
+
+        if(Auth::attempt($credentials)){
+             $user = User::where('email', '=' ,$email)->firstOrFail();
              return new UserResource($user);
         }else{
            return false;
