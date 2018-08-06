@@ -160,6 +160,11 @@ return [
                             'text' => 'Tipo Vendedores',
                             'url'  => 'tipovendedores',
                             'icon' => 'briefcase',
+                           ],
+                            [
+                            'text' => 'Paises',
+                            'url'  => 'paises',
+                            'icon' => 'flag',
                            ]
                          ]
         ],

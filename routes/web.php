@@ -40,3 +40,6 @@ Route::resource('tipovendedores', 'TipovendedoresController');
 
 //tipo de vendedores
 Route::resource('productos', 'ProductoController');
+
+//pais 
+Route::resource('paises', 'PaisController');

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pais extends Model
 {
+	protected $fillable = ['nombre','codigo'];
     
        public function oferta()
     {
