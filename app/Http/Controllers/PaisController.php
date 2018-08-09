@@ -36,23 +36,24 @@ class PaisController extends Controller
 
     public function edit($id)
     {
-         $tipovendedor = Tipovendedores::find($id);
-         return view('tipovendedores.edit', compact('tipovendedor'));
+         $pais = Pais::find($id);
+         return view('paises.edit', compact('pais'));
 
      }
 
     public function update(Request $request, $id)
     {
 
-       $request->validate([
-          'nombre_tipo' => 'required|max:255',
-       ]);
+        $request->validate([
+          'nombre' => 'required|max:255',
+          'codigo' => 'required|max:255',
+        ]);
         
-        $tipovendedor = Tipovendedores::find($id);
-        $tipovendedor->fill($request->all())->save();
+        $pais = Pais::find($id);
+        $pais->fill($request->all())->save();
 
-        $tipovendedores = Tipovendedores::orderBy('id','ASC')->get();
-       return redirect()->route('tipovendedores.index',compact('tipovendedores'))->with('info', 'Tipo Vendedor actualizado con exito');
+        $paises = Pais::orderBy('id','ASC')->get();
+       return redirect()->route('paises.index',compact('paises'))->with('info', 'Pais actualizado con exito');
 
 
     }

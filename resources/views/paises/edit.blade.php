@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Editar Tipo Vendedor')
+@section('title', 'Editar Pais')
 
 @section('content_header')
-    <h1>Editar Tipo Vendedor</h1>
+    <h1>Editar Pais</h1>
 @stop
 
 
@@ -12,8 +12,8 @@
     <div class="row">
         <div class="col-md-8 ">
              @include('layouts.errors')
-              {!! Form::model($tipovendedor, ['route'=> ['tipovendedores.update', $tipovendedor->id], 'method'=>'PUT']) !!}
-                @include('tipovendedores.partials.form')
+              {!! Form::model($pais, ['route'=> ['paises.update', $pais->id], 'method'=>'PUT']) !!}
+                @include('paises.partials.form')
            {!! Form::close() !!}
 		</div>
     </div>
