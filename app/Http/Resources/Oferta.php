@@ -14,6 +14,13 @@ class Oferta extends Resource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'titulo' => $this->titulo,
+            'descripcion' => $this->descripcion,
+            'file' => $this->file,
+            'idLineaNegocio' => $this->idLineaNegocio,
+            'pais' => $this->pais,
+            
+        ];
     }
 }
