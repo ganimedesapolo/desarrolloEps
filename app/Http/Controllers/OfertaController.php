@@ -124,12 +124,18 @@ class OfertaController extends Controller
 
 
     //obtener las ofertas por linea de negocio
-      public function ofertaLineaApi($id)
+      public function ofertaLineaApi($id,$codigoPais)
     {
        
-       $ofertas = oferta::where('idLineaNegocio', $id)
-               ->orderBy('id', 'desc')
-               ->get();
+        
+        $pais = Pais::where('codigo', '=' ,$codigoPais)->firstOrFail();
+        $idPais = $pais->id;    
+       
+        $ofertas = oferta::where('idLineaNegocio', $id)
+                 ->where('idPais', $idPais)
+                 ->orderBy('id', 'desc')
+                 ->get();
+
         return OfertaResource::collection($ofertas);
 
    }
