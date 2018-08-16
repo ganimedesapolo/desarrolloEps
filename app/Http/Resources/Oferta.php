@@ -20,6 +20,7 @@ class Oferta extends Resource
             'file' => $this->file,
             'idLineaNegocio' => $this->idLineaNegocio,
             'pais' => $this->pais,
+
             
         ];
     }
