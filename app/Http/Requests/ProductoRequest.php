@@ -30,6 +30,7 @@ class ProductoRequest extends FormRequest
             'foto' => 'nullable|mimes:jpeg,jpg,png|max:10000',
             'video_youtube_1' => 'nullable|url',
             'video_youtube_2' => 'nullable|url',
+            'banderaTco' => 'required',
         ];
     }
 
@@ -42,6 +43,7 @@ class ProductoRequest extends FormRequest
                   'descripcion_pdf.max' => "El archivo Descripcion debe pesar menos de 10 MB",
                   'foto.mimes'=> "La extension del archivo Fotografia debe ser SOLO jpeg,jpg,png",
                   'foto.max' => "El archivo Fotografia debe pesar menos de 10 MB",
+                  'banderaTco.required' => "Seleccione si el producto tendra calculadora o no",
              ];
      }
 }

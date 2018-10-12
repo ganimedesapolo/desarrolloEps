@@ -24,5 +24,9 @@
 	  {{ Form::select('idLineaNegocio', $lineaNegocios, null, ['class' => 'form-control','placeholder' => 'Por favor seleccione'] )}}
 	</div>
 	<div class="form-group">
+	  {{ Form::label('banderaTco', 'Producto con TCO?') }}
+	  {{ Form::select('banderaTco', [1 => 'SI', 0 => 'NO'], null, ['class' => 'form-control','placeholder' => 'Por favor seleccione'] )}}
+	</div>
+	<div class="form-group">
 	      {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
 	 </div>
